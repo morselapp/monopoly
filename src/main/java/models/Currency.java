@@ -5,6 +5,14 @@ import java.util.Map;
 public class Currency {
     private Map<Denomination, Integer> currency;
 
+    public Currency(){
+
+    }
+
+    public Currency(Map<Denomination, Integer> currency){
+        this.currency = currency;
+    }
+
     public Map<Denomination, Integer> getCurrency(){
         return this.currency;
     }
