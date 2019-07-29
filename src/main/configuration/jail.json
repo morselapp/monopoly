@@ -3,7 +3,7 @@
     {
       "id": 18,
       "name": "Jail",
-      "type": "TAX",
+      "type": "CHARGE",
       "icon": "abc.ico",
       "color": "RED",
       "description": "Pay fine for your crime or stay here",
