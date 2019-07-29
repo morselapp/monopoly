@@ -1,0 +1,92 @@
+{
+  "industries":[
+    {
+      "id": 3,
+      "name": "Information Technology",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "Information Technology is a large industry of India",
+      "price": 80,
+      "rent": 8,
+      "mortgage": 16
+    },
+    {
+      "id": 8,
+      "name": "Agriculture",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "Agriculture is approximately 6% of India's GDP",
+      "price": 60,
+      "rent": 6,
+      "mortgage": 12
+    },
+    {
+      "id": 12,
+      "name": "Steel",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "India is the largest producer of steel in the world",
+      "price": 50,
+      "rent": 5,
+      "mortgage": 10
+    },
+    {
+      "id": 19,
+      "name": "Film",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "India is largest producer of the cinema in the world",
+      "price": 40,
+      "rent": 4,
+      "mortgage": 8
+    },
+    {
+      "id": 23,
+      "name": "Textile",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "India used to be the largest exporter of textile in the world",
+      "price": 30,
+      "rent": 3,
+      "mortgage": 6
+    },
+    {
+      "id": 28,
+      "name": "Food",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "India has the largest number of cusines in the world",
+      "price": 50,
+      "rent": 5,
+      "mortgage": 10
+    },
+    {
+      "id": 34,
+      "name": "Automobile",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "India has multiple coporations under automobile industry",
+      "price": 30,
+      "rent": 3,
+      "mortgage": 6
+    },
+    {
+      "id": 37,
+      "name": "Clean Energy",
+      "type": "INDUSTRY",
+      "icon": "abc.ico",
+      "color": "ORANGE",
+      "description": "India is leading the transition to clean energy",
+      "price": 20,
+      "rent": 2,
+      "mortgage": 4
+    }
+  ]
+}
