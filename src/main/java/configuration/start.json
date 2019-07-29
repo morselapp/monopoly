@@ -1,0 +1,13 @@
+{
+  "start":[
+    {
+      "id": 24,
+      "name": "Parking",
+      "type": "FREE",
+      "icon": "abc.ico",
+      "color": "PINK",
+      "description": "Enjoy free stay",
+      "bonus": "200"
+    }
+  ]
+}

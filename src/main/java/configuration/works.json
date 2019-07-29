@@ -1,0 +1,22 @@
+{
+  "works":[
+    {
+      "id": 1,
+      "name": "Water works",
+      "type": "WORKS",
+      "icon": "abc.ico",
+      "color": "RED",
+      "description": "Water work is happening",
+      "charge":20
+    },
+    {
+      "id": 15,
+      "name": "Construction",
+      "type": "WORKS",
+      "icon": "abc.ico",
+      "color": "RED",
+      "description": "Construction is being done",
+      "charge":50
+    }
+  ]
+}

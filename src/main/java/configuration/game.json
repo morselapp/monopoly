@@ -1,0 +1,67 @@
+{
+  "game":[
+    {
+      "id": 1,
+      "name": "Monopoly",
+      "icon": "abc.ico",
+      "description": "play the game of monopoly",
+      "totalMoney": 15000
+    }
+  ],
+  "player":[
+    {
+      "id": 1,
+      "name": "Ajeet",
+      "icon": "abc.ico",
+      "intialMoney": 1500,
+      "currency": {
+        "ones": 5,
+        "fives": 5,
+        "twenties": 6,
+        "fifties": 3,
+        "hundreds": 2,
+        "five-hundreds": 2
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ashutosh",
+      "icon": "abc.ico",
+      "intialMoney": 1500,
+      "currency": {
+        "ones": 5,
+        "fives": 5,
+        "twenties": 6,
+        "fifties": 3,
+        "hundreds": 2,
+        "five-hundreds": 2
+      }
+    },
+    {
+      "id": 3,
+      "name": "Kunal",
+      "icon": "abc.ico",
+      "intialMoney": 1500,
+      "currency": {
+        "ones": 5,
+        "fives": 5,
+        "twenties": 6,
+        "fifties": 3,
+        "hundreds": 2,
+        "five-hundreds": 2
+      }
+    }
+  ],
+  "bank":{
+    "icon": "abc.ico",
+    "initialMoney": 13500,
+    "currency":{
+      "ones": 45,
+      "fives": 45,
+      "twenties": 54,
+      "fifties": 27,
+      "hundreds": 18,
+      "five-hundreds":18
+    }
+  }
+}

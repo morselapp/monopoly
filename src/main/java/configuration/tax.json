@@ -1,0 +1,22 @@
+{
+  "taxes":[
+    {
+      "id": 17,
+      "name": "Income tax",
+      "type": "TAX",
+      "icon": "abc.ico",
+      "color": "RED",
+      "description": "Water work is happening",
+      "charge":20
+    },
+    {
+      "id": 36,
+      "name": "GST",
+      "type": "TAX",
+      "icon": "abc.ico",
+      "color": "RED",
+      "description": "Construction is being done",
+      "charge":50
+    }
+  ]
+}

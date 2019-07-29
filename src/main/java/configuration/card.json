@@ -1,0 +1,36 @@
+{
+  "cards":[
+    {
+      "id": 1,
+      "name": "Community card",
+      "type": "CARD",
+      "icon": "abc.ico",
+      "color": "PINK",
+      "description": "Pick a community card"
+    },
+    {
+      "id": 1,
+      "name": "Community card",
+      "type": "CARD",
+      "icon": "abc.ico",
+      "color": "PINK",
+      "description": "Pick a community card"
+    },
+    {
+      "id": 1,
+      "name": "Chance card",
+      "type": "CARD",
+      "icon": "abc.ico",
+      "color": "PINK",
+      "description": "Pick a chance card"
+    },
+    {
+      "id": 15,
+      "name": "Chance card",
+      "type": "CARD",
+      "icon": "abc.ico",
+      "color": "PINK",
+      "description": "Pick a chance card"
+    }
+  ]
+}
