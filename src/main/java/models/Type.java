@@ -9,5 +9,6 @@ public enum Type {
     FREE,
     START,
     JAIL,
-    BONUS
+    BONUS,
+    CARD
 }

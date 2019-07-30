@@ -1,7 +1,6 @@
-{
-  "cards":[
+[
     {
-      "id": 1,
+      "id": 11,
       "name": "Community card",
       "type": "CARD",
       "icon": "abc.ico",
@@ -9,7 +8,7 @@
       "description": "Pick a community card"
     },
     {
-      "id": 1,
+      "id": 18,
       "name": "Community card",
       "type": "CARD",
       "icon": "abc.ico",
@@ -17,7 +16,7 @@
       "description": "Pick a community card"
     },
     {
-      "id": 1,
+      "id": 26,
       "name": "Chance card",
       "type": "CARD",
       "icon": "abc.ico",
@@ -25,12 +24,11 @@
       "description": "Pick a chance card"
     },
     {
-      "id": 15,
+      "id": 39,
       "name": "Chance card",
       "type": "CARD",
       "icon": "abc.ico",
       "color": "PINK",
       "description": "Pick a chance card"
     }
-  ]
-}
+]

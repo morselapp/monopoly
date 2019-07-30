@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      "id": 13,
       "name": "Water works",
       "type": "WORKS",
       "icon": "abc.ico",
@@ -9,7 +9,7 @@
       "charge":20
     },
     {
-      "id": 15,
+      "id": 22,
       "name": "Construction",
       "type": "WORKS",
       "icon": "abc.ico",

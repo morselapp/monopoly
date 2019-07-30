@@ -1,5 +1,7 @@
 package models;
 
-public class Card {
+import models.cell.Cell;
+
+public class Card extends Cell {
     private Action action;
 }

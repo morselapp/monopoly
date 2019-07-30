@@ -75,4 +75,12 @@ public abstract class Cell {
     public Color getColor(){
         return this.color;
     }
+
+    public boolean equals(Object obj){
+        if(!obj.getClass().equals(this.getClass())){
+            return false;
+        }
+
+        return ((Cell)obj).getId() == this.getId();
+    }
 }

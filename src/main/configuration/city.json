@@ -52,32 +52,6 @@
       "mortgage": 80
     },
     {
-      "id": 9,
-      "name": "Kolkata",
-      "type": "CITY",
-      "icon": "abc.ico",
-      "color": "BLUE",
-      "description": "Kolkata is an ancient and prominent city of India",
-      "homestaysCount": 0,
-      "resortsCount": 0,
-      "price": 400,
-      "rent": 40,
-      "mortgage": 80
-    },
-    {
-      "id": 11,
-      "name": "Hyderabad",
-      "type": "CITY",
-      "icon": "abc.ico",
-      "color": "BLUE",
-      "description": "Hyderabad is prominent city of India",
-      "homestaysCount": 0,
-      "resortsCount": 0,
-      "price": 400,
-      "rent": 40,
-      "mortgage": 80
-    },
-    {
       "id": 12,
       "name": "Varanasi",
       "type": "CITY",
@@ -104,6 +78,19 @@
       "mortgage": 48
     },
     {
+      "id": 16,
+      "name": "Haridwar",
+      "type": "CITY",
+      "icon": "abc.ico",
+      "color": "GREEN",
+      "description": "Haridwar is the spiritual city of India",
+      "homestaysCount": 0,
+      "resortsCount": 0,
+      "price": 240,
+      "rent": 24,
+      "mortgage": 48
+    },
+    {
       "id": 17,
       "name": "Hampi",
       "type": "CITY",
@@ -117,7 +104,20 @@
       "mortgage": 20
     },
     {
-      "id": 20,
+      "id": 21,
+      "name": "Tripura",
+      "type": "CITY",
+      "icon": "abc.ico",
+      "color": "YELLOW",
+      "description": "Tripura is a famous city of eastern India",
+      "homestaysCount": 0,
+      "resortsCount": 0,
+      "price": 100,
+      "rent": 10,
+      "mortgage": 20
+    },
+    {
+      "id": 24,
       "name": "Goa",
       "type": "CITY",
       "icon": "abc.ico",
@@ -130,12 +130,25 @@
       "mortgage": 36
     },
     {
-      "id": 21,
-      "name": "Tripura",
+      "id": 27,
+      "name": "Ooty",
       "type": "CITY",
       "icon": "abc.ico",
       "color": "YELLOW",
-      "description": "Tripura is a famous city of eastern India",
+      "description": "Ooty is a prominent hill station in the Nilgiri biosphere of southern India",
+      "homestaysCount": 0,
+      "resortsCount": 0,
+      "price": 150,
+      "rent": 15,
+      "mortgage": 30
+    },
+    {
+      "id": 29,
+      "name": "Sikkim",
+      "type": "CITY",
+      "icon": "abc.ico",
+      "color": "YELLOW",
+      "description": "Sikkim is the himalayan city of India",
       "homestaysCount": 0,
       "resortsCount": 0,
       "price": 100,
@@ -156,6 +169,32 @@
       "mortgage": 16
     },
     {
+      "id": 34,
+      "name": "Kolkata",
+      "type": "CITY",
+      "icon": "abc.ico",
+      "color": "BLUE",
+      "description": "Kolkata is an ancient and prominent city of India",
+      "homestaysCount": 0,
+      "resortsCount": 0,
+      "price": 400,
+      "rent": 40,
+      "mortgage": 80
+    },
+    {
+      "id": 36,
+      "name": "Hyderabad",
+      "type": "CITY",
+      "icon": "abc.ico",
+      "color": "BLUE",
+      "description": "Hyderabad is prominent city of India",
+      "homestaysCount": 0,
+      "resortsCount": 0,
+      "price": 400,
+      "rent": 40,
+      "mortgage": 80
+    },
+    {
       "id": 38,
       "name": "Ladakh",
       "type": "CITY",
@@ -167,44 +206,5 @@
       "price": 120,
       "rent": 12,
       "mortgage": 24
-    },
-    {
-      "id": 14,
-      "name": "Ooty",
-      "type": "CITY",
-      "icon": "abc.ico",
-      "color": "YELLOW",
-      "description": "Ooty is a prominent hill station in the Nilgiri biosphere of southern India",
-      "homestaysCount": 0,
-      "resortsCount": 0,
-      "price": 150,
-      "rent": 15,
-      "mortgage": 30
-    },
-    {
-      "id": 15,
-      "name": "Sikkim",
-      "type": "CITY",
-      "icon": "abc.ico",
-      "color": "YELLOW",
-      "description": "Sikkim is the himalayan city of India",
-      "homestaysCount": 0,
-      "resortsCount": 0,
-      "price": 100,
-      "rent": 10,
-      "mortgage": 20
-    },
-    {
-      "id": 16,
-      "name": "Haridwar",
-      "type": "CITY",
-      "icon": "abc.ico",
-      "color": "GREEN",
-      "description": "Haridwar is the spiritual city of India",
-      "homestaysCount": 0,
-      "resortsCount": 0,
-      "price": 240,
-      "rent": 24,
-      "mortgage": 48
     }
 ]

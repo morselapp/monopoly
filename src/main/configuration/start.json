@@ -1,11 +1,11 @@
 [
     {
-      "id": 24,
-      "name": "Parking",
+      "id": 0,
+      "name": "Starting Cell",
       "type": "BONUS",
       "icon": "abc.ico",
       "color": "PINK",
-      "description": "Enjoy free stay",
+      "description": "Start the game from here",
       "bonus": "200"
     }
 ]

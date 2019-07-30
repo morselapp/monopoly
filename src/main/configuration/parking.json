@@ -1,6 +1,6 @@
 [
     {
-      "id": 18,
+      "id": 20,
       "name": "Parking",
       "type": "FREE",
       "icon": "abc.ico",
@@ -8,7 +8,7 @@
       "description": "Enjoy free stay"
     },
     {
-      "id": 7,
+      "id": 30,
       "name": "Go to Jail",
       "type": "FREE",
       "icon": "abc.ico",
