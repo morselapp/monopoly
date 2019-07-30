@@ -1,5 +1,4 @@
-{
-  "cities":[
+[
     {
       "id": 1,
       "name": "Bangalore",
@@ -209,4 +208,3 @@
       "mortgage": 48
     }
   ]
-}

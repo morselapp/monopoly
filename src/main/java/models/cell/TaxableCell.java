@@ -1,6 +1,6 @@
 package models.cell;
 
-public abstract  class TaxableCell implements ITaxable {
+public abstract  class TaxableCell extends Cell implements ITaxable {
 
     private double charge;
 

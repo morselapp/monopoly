@@ -1,5 +1,4 @@
-{
-  "industries":[
+[
     {
       "id": 3,
       "name": "Information Technology",
@@ -88,5 +87,4 @@
       "rent": 2,
       "mortgage": 4
     }
-  ]
-}
+]

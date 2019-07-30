@@ -1,11 +1,14 @@
 package models;
 
 
+import java.util.Map;
+
 public class Player {
     private int id;
     private String name;
+    private String icon;
     private int initialMoney;
-    private Currency currency;
+    private Map<Denomination, Integer> currency;
 
     public int getId(){
         return this.id;
@@ -30,12 +33,20 @@ public class Player {
     public void setInitialMoney(int initialMoney){
         this.initialMoney = initialMoney;
     }
-
+/*
     public Currency getCurrency(){
         return this.currency;
     }
-
-    public void setCurrency(Currency currency){
+*/
+    public void setCurrency(Map<Denomination, Integer> currency){
         this.currency = currency;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

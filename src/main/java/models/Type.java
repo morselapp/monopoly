@@ -8,5 +8,6 @@ public enum Type {
     WORKS,
     FREE,
     START,
-    JAIL
+    JAIL,
+    BONUS
 }

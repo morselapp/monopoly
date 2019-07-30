@@ -1,13 +1,11 @@
-{
-  "jail":[
+[
     {
       "id": 18,
       "name": "Jail",
-      "type": "CHARGE",
+      "type": "JAIL",
       "icon": "abc.ico",
       "color": "RED",
       "description": "Pay fine for your crime or stay here",
       "charge":60
     }
-  ]
-}
+]

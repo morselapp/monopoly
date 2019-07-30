@@ -1,5 +1,4 @@
-{
-  "parking":[
+[
     {
       "id": 18,
       "name": "Parking",
@@ -9,12 +8,11 @@
       "description": "Enjoy free stay"
     },
     {
-        "id": 7,
-        "name": "Go to Jail",
-        "type": "FREE",
-        "icon": "abc.ico",
-        "color": "RED",
-        "description": "Go to Jail"
+      "id": 7,
+      "name": "Go to Jail",
+      "type": "FREE",
+      "icon": "abc.ico",
+      "color": "RED",
+      "description": "Go to Jail"
     }
   ]
-}

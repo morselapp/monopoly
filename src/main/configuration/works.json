@@ -1,5 +1,4 @@
-{
-  "works":[
+[
     {
       "id": 1,
       "name": "Water works",
@@ -19,4 +18,3 @@
       "charge":50
     }
   ]
-}

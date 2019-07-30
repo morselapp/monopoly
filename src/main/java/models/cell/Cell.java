@@ -1,5 +1,6 @@
 package models.cell;
 
+import models.Color;
 import models.Type;
 
 public class Cell {
@@ -7,6 +8,12 @@ public class Cell {
     private String name;
     private Type type;
     private String icon;
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    private Color color;
     private String description;
 
     public Cell(){
@@ -17,7 +24,7 @@ public class Cell {
         this.type = type;
     }
 
-    public Cell(int id, String name, Type type, String icon, String description){
+    public Cell(int id, String name, Type type, String icon, Color color, String description){
         this.id = id;
         this.name = name;
         this.type = type;

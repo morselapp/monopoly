@@ -1,5 +1,4 @@
-{
-  "transports":[
+[
     {
       "id": 1,
       "name": "Railways",
@@ -44,5 +43,4 @@
       "rent": 10,
       "mortgage": 20
     }
-  ]
-}
+]
