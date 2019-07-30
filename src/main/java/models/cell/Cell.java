@@ -3,15 +3,11 @@ package models.cell;
 import models.Color;
 import models.Type;
 
-public class Cell {
+public abstract class Cell {
     private int id;
     private String name;
     private Type type;
     private String icon;
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
 
     private Color color;
     private String description;
@@ -70,5 +66,13 @@ public class Cell {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setColor(Color color){
+        this.color = color;
+    }
+
+    public Color getColor(){
+        return this.color;
     }
 }
