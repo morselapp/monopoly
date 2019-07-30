@@ -1,7 +1,9 @@
 package models;
 
+import models.cell.Cell;
+
 public class Board {
-    private Cell [] board;
+    private Cell[] board;
 
     public Board(){
 

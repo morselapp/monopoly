@@ -1,4 +1,6 @@
-package models;
+package models.cell;
+
+import models.Type;
 
 public class Cell {
     private int id;
@@ -9,6 +11,10 @@ public class Cell {
 
     public Cell(){
 
+    }
+
+    public Cell(Type type){
+        this.type = type;
     }
 
     public Cell(int id, String name, Type type, String icon, String description){

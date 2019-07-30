@@ -4,6 +4,5 @@ import models.Player;
 
 public interface IChargeable {
 
-    void collectCharge(Player p);
-
+    void collectCharge(Player player);
 }
