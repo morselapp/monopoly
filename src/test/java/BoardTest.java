@@ -1,7 +1,8 @@
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import models.*;
-import models.cell.*;
+import monopoly.GameService;
+import monopoly.models.*;
+import monopoly.models.cell.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +54,7 @@ public class BoardTest {
 
     @Test
     public void boardInitializationTest() throws IOException{
-        board.initialize();
+        new GameService(objectMapper).initializeBoard();
         Assert.assertEquals("Number of cells is not matching", board.getBoard().length, 40);
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[0].getName(), "Bangalore");
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[1].getName(), "Mumbai");
@@ -84,4 +85,6 @@ public class BoardTest {
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[38].getName(), "Chance card");
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[39].getName(), "Chance card");
     }
+
+
 }

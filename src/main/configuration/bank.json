@@ -1,0 +1,12 @@
+{
+    "icon": "abc.ico",
+    "initialMoney": 13500,
+    "currency":{
+      "ONES": 45,
+      "FIVES": 45,
+      "TWENTIES": 54,
+      "FIFTIES": 27,
+      "HUNDREDS": 18,
+      "FIVE_HUNDREDS":18
+    }
+}
