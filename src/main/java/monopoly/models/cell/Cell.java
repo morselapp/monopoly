@@ -3,7 +3,7 @@ package monopoly.models.cell;
 import monopoly.models.Color;
 import monopoly.models.Type;
 
-public abstract class Cell {
+public abstract class Cell implements Comparable<Cell>{
     private int id;
     private String name;
     private Type type;
@@ -82,5 +82,18 @@ public abstract class Cell {
         }
 
         return ((Cell)obj).getId() == this.getId();
+    }
+
+    @Override
+    public int compareTo(Cell cell) {
+        if(cell.getId() == this.getId()) {
+            return 0;
+        }
+        else if(cell.getId() < this.getId()){
+            return 1;
+        }
+        else{
+            return -1;
+        }
     }
 }

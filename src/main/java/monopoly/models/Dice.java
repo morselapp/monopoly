@@ -1,7 +1,10 @@
 package monopoly.models;
 
+import java.util.Random;
+
 public class Dice {
     private Face face;
+    private int outcome;
 
     public Face getFace() {
         return face;
@@ -12,7 +15,9 @@ public class Dice {
     }
 
     public int roll(){
-        return 0;
+        Random random = new Random();
+        outcome = random.nextInt(Face.values().length)+1;
+        return outcome;
     }
 
     @Override
@@ -21,6 +26,6 @@ public class Dice {
         if(this.getClass() != dice.getClass()){
             return false;
         }
-        return face == ((Dice)dice).face;
+        return outcome == ((Dice)dice).outcome;
     }
 }

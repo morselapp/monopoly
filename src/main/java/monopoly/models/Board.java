@@ -22,4 +22,12 @@ public class Board {
     public void setBoard(Cell [] board){
         this.board = board;
     }
+
+    public Map<Player, Cell> getPlayerCellInfo() {
+        return playerCellInfo;
+    }
+
+    public void setPlayerCellInfo(Map<Player, Cell> playerCellInfo) {
+        this.playerCellInfo = playerCellInfo;
+    }
 }

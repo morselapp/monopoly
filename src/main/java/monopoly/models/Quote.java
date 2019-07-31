@@ -1,6 +1,6 @@
 package monopoly.models;
 
-class Quote{
+public class Quote{
     private int quote;
     private Player quoteBy;
 

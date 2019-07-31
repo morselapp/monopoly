@@ -5,6 +5,11 @@ public class DiceSuit {
     private Dice diceX;
     private Dice diceY;
 
+    public DiceSuit(Dice diceX, Dice diceY){
+        this.diceX = diceX;
+        this.diceY = diceY;
+    }
+
     public Dice getDiceX() {
         return diceX;
     }

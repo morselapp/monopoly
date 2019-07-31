@@ -1,11 +1,27 @@
 package monopoly.models;
 
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import monopoly.models.cell.Cell;
 
+import java.util.Map;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Bank {
     private String icon;
     private int initialMoney;
     private Map<Denomination, Integer> currency;
+
+/*
+    public Map<Cell, Player> getAssetsOwner() {
+        return assetsOwner;
+    }
+
+    public void setAssetsOwner(Map<Cell, Player> assetsOwner) {
+        this.assetsOwner = assetsOwner;
+    }
+
+    private Map<Cell, Player> assetsOwner;
+*/
 
     public Bank(){
 

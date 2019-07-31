@@ -2,7 +2,7 @@ package monopoly.models;
 
 public class Bid {
 
-    private int baseQuote;
+    private double baseQuote;
 
     private Quote currentQuote;
     private Quote finalQuote;
@@ -11,7 +11,15 @@ public class Bid {
 
     }
 
-    public Bid(int baseQuote, int currentQuote){
+    public Bid(double baseQuote){
+        this.baseQuote = baseQuote;
+    }
 
+    public double getBaseQuote() {
+        return baseQuote;
+    }
+
+    public void setCurrentQuote(Quote currentQuote){
+        this.currentQuote = currentQuote;
     }
 }

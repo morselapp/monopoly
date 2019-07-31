@@ -2,14 +2,14 @@ package monopoly;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import monopoly.models.*;
-import monopoly.models.cell.*;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
 
     private GameService gameService;
-    private Cell[] board;
+    private Board board;
     private List<Player> players;
     private Bank bank;
 
@@ -20,9 +20,20 @@ public class Game {
 
     void startTheGame(){
         try {
-            board = gameService.initializeBoard();
+            board = new Board();
+            board.setBoard(gameService.initializeBoard());
+            board.getBoard();
             players = gameService.initializePlayers();
             bank = gameService.initializeBank();
+            gameService.setPlayerPosition(players, board);
+
+
+            gameService.play(players.get(0), board, new DiceSuit(new Dice(), new Dice()), players, bank);
+
+
+
+
+
         }catch (IOException e){
             e.printStackTrace();
         }
