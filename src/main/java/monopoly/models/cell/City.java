@@ -1,5 +1,7 @@
 package monopoly.models.cell;
 
+import monopoly.models.Bank;
+import monopoly.models.Player;
 import monopoly.models.Type;
 
 public class City extends BuyableCell {
@@ -26,4 +28,6 @@ public class City extends BuyableCell {
     public void setResortsCount(int resortsCount) {
         this.resortsCount = resortsCount;
     }
+
+    //public void buy (Bank bank, Player player, Cell cell);
 }

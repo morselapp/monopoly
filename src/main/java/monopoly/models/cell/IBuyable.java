@@ -1,8 +1,9 @@
 package monopoly.models.cell;
 
+import monopoly.models.Bank;
 import monopoly.models.Player;
 
 public interface IBuyable {
 
-    void buy(Player player);
+    void buy(Bank bank,Player player, Cell cell);
 }

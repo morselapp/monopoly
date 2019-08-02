@@ -1,7 +1,11 @@
 package monopoly.models.cell;
 
 
+import monopoly.models.Type;
+
 public abstract class ChargeableCell extends Cell implements IChargeable {
+
+    public  ChargeableCell (Type type) { super(type);}
 
     private double charge;
 
