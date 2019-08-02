@@ -11,17 +11,36 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.XMLFormatter;
 import java.util.stream.Stream;
 
 public class BoardTest {
 
     private ObjectMapper objectMapper;
     private Board board;
+    private Logger log;
+    private FileHandler fileHandler;
+    private Scanner scanner;
+
+    {
+        try {
+            fileHandler = new FileHandler();
+            fileHandler.setFormatter(new XMLFormatter());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Before
     public void setup(){
         objectMapper = new ObjectMapper();
         board = new Board();
+        log = Logger.getLogger(GameService.class.getName());
+        log.addHandler(fileHandler);
+        scanner = new Scanner(System.in);
     }
 
     @Test
@@ -55,7 +74,7 @@ public class BoardTest {
     @Test
     public void boardInitializationTest() throws IOException{
         board = new Board();
-        board.setBoard(new GameService(objectMapper).initializeBoard());
+        board.setBoard(new GameService(objectMapper, log, scanner).initializeBoard());
         Assert.assertEquals("Number of cells is not matching", board.getBoard().length, 40);
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[0].getName(), "Starting Cell");
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[1].getName(), "Bangalore");
@@ -69,7 +88,6 @@ public class BoardTest {
 
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[35].getId(), 36);
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[35].getName(), "Hyderabad");
-
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[36].getName(), "GST");
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[37].getName(), "Clean Energy");
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[38].getName(), "Ladakh");

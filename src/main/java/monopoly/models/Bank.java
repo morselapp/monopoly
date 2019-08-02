@@ -1,8 +1,6 @@
 package monopoly.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import monopoly.models.cell.Cell;
 
 import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)

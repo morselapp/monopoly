@@ -2,6 +2,7 @@ package monopoly;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.inject.Inject;
 import monopoly.models.*;
 import monopoly.models.cell.*;
 
@@ -13,24 +14,16 @@ import java.util.logging.*;
 public class GameService {
 
     private ObjectMapper objectMapper;
-    private FileHandler fileHandler;
     private Logger log;
     private Scanner scanner;
+    private BidService bidService;
 
-    {
-        try {
-            fileHandler = new FileHandler();
-            fileHandler.setFormatter(new XMLFormatter());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public GameService(ObjectMapper objectMapper){
+    @Inject
+    public GameService(ObjectMapper objectMapper, Logger log, Scanner scanner){
         this.objectMapper = objectMapper;
-        log = Logger.getLogger(GameService.class.getName());
-        log.addHandler(fileHandler);
-        scanner = new Scanner(System.in);
+        this.log = log;
+        this.scanner = scanner;
+        bidService = new BidService(log, scanner);
     }
 
     public Cell[] initializeBoard() throws IOException {
@@ -47,6 +40,10 @@ public class GameService {
         Cell[] board = new Cell[1];
         List<Cell> cells = new ArrayList<>();
         Utils.renderCells(board, cities, transports, industries, jail, parking, start, taxes, works, cards, cells);
+
+        /*
+            Sorting it here to make sure the cells are orders as per the ids.
+         */
         Collections.sort(cells);
         log.info("board initialized");
         return cells.toArray(new Cell[40]);
@@ -125,7 +122,7 @@ public class GameService {
                     } else {
                         log.info(newCell.getName() + " is available for bid");
                         Bid bid = new Bid(((BuyableCell) newCell).getPrice());
-                        initiateBid(bid, player, players);
+                        bidService.initiateBid(newCell, player);
                     }
                 }
            // }
@@ -139,27 +136,5 @@ public class GameService {
         else {
             log.info(newCell.getName()+" is free cell. Enjoy your stay here");
         }
-    }
-
-    private void initiateBid(Bid bid, Player player, List<Player> players){
-        log.info(bid.getBaseQuote() +" is the base quote for the bid");
-
-            int currentPlayerIndex = players.indexOf(player);
-            Player nextBidder = players.get(currentPlayerIndex + 1);
-
-            log.info(nextBidder.getName() + " is the next player to bid");
-
-            System.out.println(nextBidder.getName() + " please enter your bid amount");
-
-            while (scanner.hasNext()) {
-                int bidAmount = Integer.parseInt(scanner.next());
-                if (bidAmount < bid.getBaseQuote()) {
-                    System.out.println("Invalid bid. Bid value must be at least " + bid.getBaseQuote());
-                } else {
-                    bid.setCurrentQuote(new Quote(bidAmount, nextBidder));
-                    break;
-                }
-            }
-
     }
 }

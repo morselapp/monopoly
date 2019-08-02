@@ -22,4 +22,20 @@ public class Bid {
     public void setCurrentQuote(Quote currentQuote){
         this.currentQuote = currentQuote;
     }
+
+    public void setFinalQuote(Quote finalQuote) {
+        this.finalQuote = finalQuote;
+    }
+
+    public Quote getCurrentQuote() {
+        return currentQuote;
+    }
+
+    public void setBaseQuote(double baseQuote) {
+        this.baseQuote = baseQuote;
+    }
+
+    public Quote getFinalQuote() {
+        return finalQuote;
+    }
 }
