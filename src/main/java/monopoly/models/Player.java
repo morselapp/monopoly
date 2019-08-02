@@ -1,5 +1,7 @@
 package monopoly.models;
 
+import monopoly.Utils;
+
 import java.util.Map;
 
 public class Player {
@@ -9,35 +11,35 @@ public class Player {
     private int initialMoney;
     private Map<Denomination, Integer> currency;
 
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void setName(String name){
-         this.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getInitialMoney(){
+    public int getInitialMoney() {
         return this.initialMoney;
     }
 
-    public void setInitialMoney(int initialMoney){
+    public void setInitialMoney(int initialMoney) {
         this.initialMoney = initialMoney;
     }
 
-    public Map<Denomination, Integer> getCurrency(){
+    public Map<Denomination, Integer> getCurrency() {
         return this.currency;
     }
 
-    public void setCurrency(Map<Denomination, Integer> currency){
+    public void setCurrency(Map<Denomination, Integer> currency) {
         this.currency = currency;
     }
 
@@ -47,5 +49,9 @@ public class Player {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public int currentMoney() {
+        return new Utils().getMoneyFromCurrency(this.currency);
     }
 }
