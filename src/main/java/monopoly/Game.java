@@ -24,16 +24,6 @@ public class Game {
     @Inject
     public Game(GameService gameService){
         this.gameService = gameService;
-        log = Logger.getLogger(GameService.class.getName());
-
-        {
-            try {
-                fileHandler = new FileHandler();
-                fileHandler.setFormatter(new XMLFormatter());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     void startTheGame(){
@@ -44,7 +34,7 @@ public class Game {
             players = gameService.initializePlayers();
             bank = gameService.initializeBank();
             gameService.setPlayerPosition(players, board);
-            gameService.play(players.get(0), board, new DiceSuit(new Dice(), new Dice()), players, bank);
+            gameService.play(players.get(0), board, players, bank);
 
         }catch (IOException e){
             e.printStackTrace();
@@ -52,9 +42,16 @@ public class Game {
     }
 
     public static void main(String[] args) {
-
+        log = Logger.getLogger(GameService.class.getName());
+        try {
+            fileHandler = new FileHandler();
+            fileHandler.setFormatter(new XMLFormatter());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         log.addHandler(fileHandler);
         scanner = new Scanner(System.in);
-        new Game(new GameService(new ObjectMapper(), log, scanner)).startTheGame();
+        UserInput userInput = new UserInput();
+        new Game(new GameService(new ObjectMapper(), log, scanner, userInput)).startTheGame();
     }
 }

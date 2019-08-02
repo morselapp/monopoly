@@ -17,13 +17,15 @@ public class GameService {
     private Logger log;
     private Scanner scanner;
     private BidService bidService;
+    private DiceService diceService;
 
     @Inject
-    public GameService(ObjectMapper objectMapper, Logger log, Scanner scanner){
+    public GameService(ObjectMapper objectMapper, Logger log, Scanner scanner, UserInput userInput){
         this.objectMapper = objectMapper;
         this.log = log;
         this.scanner = scanner;
-        bidService = new BidService(log, scanner);
+        bidService = new BidService(log, userInput);
+        diceService = new DiceService(new DiceSuit(new Dice(), new Dice()));
     }
 
     public Cell[] initializeBoard() throws IOException {
@@ -65,19 +67,27 @@ public class GameService {
         log.info("players placed on board");
     }
 
-    public void play(Player player, Board board, DiceSuit diceSuit, List<Player> players, Bank bank){
-        int suitOutcome = diceSuit.roll();
-        boolean isDouble = diceSuit.isDouble();
-        if(isDouble){
-            log.info(player.getName() +" rolled a double with outcome "+ suitOutcome);
+    public void play(Player player, Board board, List<Player> players, Bank bank){
+        List<DiceTuple> diceTuples = diceService.roll();
+
+        int suitOutcome = 0;
+
+        for (DiceTuple tuple: diceTuples) {
+            suitOutcome += tuple.getFaceY() +  tuple.getFaceY();
+        }
+
+        if(suitOutcome == -2){
+
+            log.info(player.getName() +" rolled doubles thrice with outcome "+ suitOutcome);
+            log.info( player.getName() +" sent to jail");
         }
         else {
             log.info(player.getName() + " rolled " + suitOutcome);
         }
-        move(player, board, suitOutcome, isDouble, players, bank);
+        move(player, board, suitOutcome, players, bank);
     }
 
-    private void move(Player player, Board board, int suitOutcome, boolean isDouble, List<Player> players, Bank bank){
+    private void move(Player player, Board board, int suitOutcome, List<Player> players, Bank bank){
         Cell playerCell = board.getPlayerCellInfo().get(player);
 
         int position = 0;
@@ -121,8 +131,7 @@ public class GameService {
                         log.info(player.getName() + " decided to buy " + newCell.getName());
                     } else {
                         log.info(newCell.getName() + " is available for bid");
-                        Bid bid = new Bid(((BuyableCell) newCell).getPrice());
-                        bidService.initiateBid(newCell, player);
+                        Bid bid = bidService.performBid(newCell, player, players);
                     }
                 }
            // }

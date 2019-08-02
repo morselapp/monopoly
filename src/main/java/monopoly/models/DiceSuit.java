@@ -26,8 +26,8 @@ public class DiceSuit {
         this.diceY = diceY;
     }
 
-    public int roll(){
-        return diceX.roll() + diceY.roll();
+    public DiceTuple roll(){
+        return new DiceTuple(diceX.roll(), diceY.roll());
     }
 
     public boolean isDouble(){

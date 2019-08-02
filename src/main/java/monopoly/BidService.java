@@ -7,25 +7,21 @@ import monopoly.models.cell.BuyableCell;
 import monopoly.models.cell.Cell;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class BidService {
 
     private Bid bid;
-    private Player player;
-    private List<Player> players;
     private Logger log;
-    private Scanner scanner;
+    private UserInput userInput;
 
-    public BidService(Logger log, Scanner scanner){
-
+    public BidService(Logger log, UserInput userInput){
 
         this.log = log;
-        this.scanner = scanner;
+        this.userInput = userInput;
     }
 
-    public void initiateBid(Cell newCell, Player player){
+    public Bid performBid(Cell newCell, Player player, List<Player> players){
         bid = new Bid(((BuyableCell)newCell).getPrice());
         log.info(bid.getBaseQuote() +" is the base quote for the bid");
 
@@ -37,16 +33,7 @@ public class BidService {
             log.info(nextBidder.getName() + " is the next player to bid");
             System.out.println(nextBidder.getName() + " please enter your bid amount");
 
-            int bidAmount = 0;
-            while (scanner.hasNext()) {
-                bidAmount = Integer.parseInt(scanner.next());
-                if (bidAmount < bid.getBaseQuote()) {
-                    System.out.println("Invalid bid. Bid value must be at least " + bid.getBaseQuote());
-
-                } else {
-                    break;
-                }
-            }
+            int bidAmount = userInput.getBidAmount(bid);
 
             if (bid.getCurrentQuote() == null) {
                 bid.setCurrentQuote(new Quote(bidAmount, nextBidder));
@@ -60,7 +47,11 @@ public class BidService {
                 bid.setFinalQuote(bid.getCurrentQuote());
             }
         }
-        log.info(bid.getFinalQuote().getQuoteBy().getName() +" won the bid");
+
+        Player winner = bid.getFinalQuote().getQuoteBy();
+
+        log.info(winner.getName() +" won the bid");
         log.info("Initiating the purchase");
+        return bid;
     }
 }
