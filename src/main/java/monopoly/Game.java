@@ -1,7 +1,6 @@
 package monopoly;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.inject.Inject;
 import monopoly.models.*;
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +22,6 @@ public class Game {
     private static FileHandler fileHandler;
 
 
-    @Inject
     public Game(GameService gameService){
         this.gameService = gameService;
     }
