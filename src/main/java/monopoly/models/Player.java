@@ -1,5 +1,6 @@
 package monopoly.models;
 
+import monopoly.Utils.CurrencyUtils;
 import monopoly.Utils.Utils;
 
 import java.util.Map;
@@ -52,6 +53,6 @@ public class Player extends TransactionEntity {
     }
 
     public int currentMoney() {
-        return new Utils().getMoneyFromCurrency(this.currency);
+        return CurrencyUtils.getMoneyFromCurrency(this.currency);
     }
 }

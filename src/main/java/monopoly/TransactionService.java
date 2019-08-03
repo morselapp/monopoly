@@ -1,10 +1,8 @@
 package monopoly;
 
+import monopoly.Utils.CurrencyUtils;
 import monopoly.Utils.Utils;
-import monopoly.models.Bank;
-import monopoly.models.Board;
-import monopoly.models.Denomination;
-import monopoly.models.Player;
+import monopoly.models.*;
 import monopoly.models.cell.BuyableCell;
 import monopoly.models.cell.Cell;
 
@@ -35,22 +33,22 @@ public class TransactionService implements ITransaction {
     }
 
     public void buyCell (Bank bank, Player player, Cell cell) {
-        Map<Denomination,Integer> currencyPlayerNeeds = new Utils().getCurrencyNotesForGivenAmount(((BuyableCell) cell).getPrice());
+        Map<Denomination,Integer> currencyPlayerNeeds = CurrencyUtils.getCurrencyNotesForGivenAmount(((BuyableCell) cell).getPrice());
         Map<Denomination,Integer> currencyPlayerHas = player.getCurrency();
-        Map<Denomination,Integer> currencyPlayerSpends = new Utils().getCurrencyPlayerSpend(currencyPlayerHas,currencyPlayerNeeds);
-        int moneySpendByPlayer = new Utils().getMoneyFromCurrency(currencyPlayerSpends);
+        Map<Denomination,Integer> currencyPlayerSpends = CurrencyUtils.getCurrencyPlayerSpend(currencyPlayerHas,currencyPlayerNeeds);
+        int moneySpendByPlayer = CurrencyUtils.getMoneyFromCurrency(currencyPlayerSpends);
         Map<Denomination,Integer> playerFinalCurrency =  new LinkedHashMap<>();
         Map<Denomination,Integer> bankFinalCurrency =  new LinkedHashMap<>();
         if (moneySpendByPlayer < (int) ((BuyableCell) cell).getPrice()) {
-            Map<Denomination,Integer> biggerCurrencyPlayerNeeds = new Utils().getBiggerCurrencyPlayerNeeds(((BuyableCell) cell).getPrice(),currencyPlayerHas);
+            Map<Denomination,Integer> biggerCurrencyPlayerNeeds = CurrencyUtils.getBiggerCurrencyPlayerNeeds(((BuyableCell) cell).getPrice(),currencyPlayerHas);
             if (biggerCurrencyPlayerNeeds.size()>0) {
-                int extraAmount = new Utils().getMoneyFromCurrency(biggerCurrencyPlayerNeeds)- new Utils().getMoneyFromCurrency(currencyPlayerNeeds);
-                Map<Denomination,Integer> extraCurrency = new Utils().getCurrencyNotesForGivenAmount((double)extraAmount);
+                int extraAmount = CurrencyUtils.getMoneyFromCurrency(biggerCurrencyPlayerNeeds)- CurrencyUtils.getMoneyFromCurrency(currencyPlayerNeeds);
+                Map<Denomination,Integer> extraCurrency = CurrencyUtils.getCurrencyNotesForGivenAmount((double)extraAmount);
                 if (extraCurrency.size() > 0) {
-                    bankFinalCurrency = new Utils().subtractValueOfKeysFromOneMapToAnother(extraCurrency,bank.getCurrency());
-                    playerFinalCurrency = new Utils().addValueOfKeysFromOneMapToAnother(extraCurrency,currencyPlayerHas);
-                    bankFinalCurrency = new Utils().addValueOfKeysFromOneMapToAnother(biggerCurrencyPlayerNeeds,bankFinalCurrency);
-                    playerFinalCurrency = new Utils().subtractValueOfKeysFromOneMapToAnother(biggerCurrencyPlayerNeeds,playerFinalCurrency);
+                    bankFinalCurrency = CurrencyUtils.subtractValueOfKeysFromOneMapToAnother(extraCurrency,bank.getCurrency());
+                    playerFinalCurrency = CurrencyUtils.addValueOfKeysFromOneMapToAnother(extraCurrency,currencyPlayerHas);
+                    bankFinalCurrency = CurrencyUtils.addValueOfKeysFromOneMapToAnother(biggerCurrencyPlayerNeeds,bankFinalCurrency);
+                    playerFinalCurrency = CurrencyUtils.subtractValueOfKeysFromOneMapToAnother(biggerCurrencyPlayerNeeds,playerFinalCurrency);
                 }
 
             } else {
@@ -58,16 +56,16 @@ public class TransactionService implements ITransaction {
             }
 
         } else {
-            bankFinalCurrency = new Utils().addValueOfKeysFromOneMapToAnother(currencyPlayerSpends,bank.getCurrency());
-            playerFinalCurrency = new Utils().subtractValueOfKeysFromOneMapToAnother(currencyPlayerSpends,currencyPlayerHas);
+            bankFinalCurrency = CurrencyUtils.addValueOfKeysFromOneMapToAnother(currencyPlayerSpends,bank.getCurrency());
+            playerFinalCurrency = CurrencyUtils.subtractValueOfKeysFromOneMapToAnother(currencyPlayerSpends,currencyPlayerHas);
         }
         bank.setCurrency(bankFinalCurrency);
         player.setCurrency(playerFinalCurrency);
         ((BuyableCell) cell).setBoughtState(true);
         ((BuyableCell) cell).setOwnerId(player.getId());
         log.info("cell "+  cell.getName()+ "has been bought by : " + player.getName());
-        log.info ("player "+ player.getName() + "net money currently " +  new Utils().getMoneyFromCurrency(player.getCurrency()));
-        log.info ("bank net money currently " +  new Utils().getMoneyFromCurrency(bank.getCurrency()));
+        log.info ("player "+ player.getName() + "net money currently " +  CurrencyUtils.getMoneyFromCurrency(player.getCurrency()));
+        log.info ("bank net money currently " +  CurrencyUtils.getMoneyFromCurrency(bank.getCurrency()));
 
     }
 

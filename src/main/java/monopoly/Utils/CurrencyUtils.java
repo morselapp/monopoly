@@ -7,9 +7,9 @@ import java.util.Map;
 
 public class CurrencyUtils {
 
-    final int[] currencyNotes = {1, 5, 20, 50, 100, 500};
+    static final int[] currencyNotes = {1, 5, 20, 50, 100, 500};
 
-    public Map<Denomination,Integer> addValueOfKeysFromOneMapToAnother(Map<Denomination,Integer> mapSource , Map<Denomination,Integer> mapTarget) {
+    public static Map<Denomination,Integer> addValueOfKeysFromOneMapToAnother(Map<Denomination,Integer> mapSource , Map<Denomination,Integer> mapTarget) {
         for (Map.Entry<Denomination,Integer> entrySource : mapTarget.entrySet()) {
             for (Map.Entry<Denomination,Integer> entryTarget : mapTarget.entrySet()) {
                 if (entryTarget.getKey().equals(entrySource.getKey())) {
@@ -21,7 +21,7 @@ public class CurrencyUtils {
         return mapTarget;
     }
 
-    public Map<Denomination,Integer> subtractValueOfKeysFromOneMapToAnother(Map<Denomination,Integer> mapSource , Map<Denomination,Integer> mapTarget) {
+    public static Map<Denomination,Integer> subtractValueOfKeysFromOneMapToAnother(Map<Denomination,Integer> mapSource , Map<Denomination,Integer> mapTarget) {
         for (Map.Entry<Denomination,Integer> entrySource : mapTarget.entrySet()) {
             for (Map.Entry<Denomination,Integer> entryTarget : mapTarget.entrySet()) {
                 if (entryTarget.getKey().equals(entrySource.getKey()) && entryTarget.getValue()> entrySource.getValue()) {
@@ -33,7 +33,7 @@ public class CurrencyUtils {
         return mapTarget;
     }
 
-    public Map<Denomination,Integer> getBiggerCurrencyPlayerNeeds (double amount,Map<Denomination,Integer> currencyPlayerHas) {
+    public static Map<Denomination,Integer> getBiggerCurrencyPlayerNeeds (double amount,Map<Denomination,Integer> currencyPlayerHas) {
         int amountRound  = (int) amount;
         Map<Denomination, Integer> biggerCurrencyPlayerSpend = new LinkedHashMap<>();
         for (Map.Entry<Denomination,Integer> entry: currencyPlayerHas.entrySet()) {
@@ -49,7 +49,7 @@ public class CurrencyUtils {
 
     }
 
-    public Map<Denomination, Integer> getCurrencyPlayerSpend(Map<Denomination, Integer> currencyPlayerHas, Map<Denomination, Integer> currencyPlayerNeeds) {
+    public static Map<Denomination, Integer> getCurrencyPlayerSpend(Map<Denomination, Integer> currencyPlayerHas, Map<Denomination, Integer> currencyPlayerNeeds) {
         Map<Denomination, Integer> currencyPlayerSpend = new LinkedHashMap<>();
         for (Map.Entry<Denomination, Integer> entryCurrencyNeeds : currencyPlayerNeeds.entrySet()) {
             for (Map.Entry<Denomination,Integer> entryCurrencyHas :currencyPlayerHas.entrySet()) {
@@ -65,14 +65,14 @@ public class CurrencyUtils {
         return currencyPlayerSpend;
     }
 
-    public Map<Denomination, Integer> getCurrencyNotesForGivenAmount(double amount) {
+    public static Map<Denomination, Integer> getCurrencyNotesForGivenAmount(double amount) {
         Map<Denomination, Integer> currency = new LinkedHashMap<>();
         int amountRound = (int) amount;
         getCurrencyNotesForGivenAmountHelper(currency, amountRound);
         return currency;
     }
 
-    private void getCurrencyNotesForGivenAmountHelper(Map<Denomination, Integer> currency, int amountRound) {
+    private static void getCurrencyNotesForGivenAmountHelper(Map<Denomination, Integer> currency, int amountRound) {
         while (amountRound > 0) {
             int maxNote = getBiggestCurrencyNoteBelowAmount(amountRound);
             if (maxNote > 0 && amountRound / maxNote > 0) {
@@ -86,7 +86,7 @@ public class CurrencyUtils {
 
     }
 
-    private int getBiggestCurrencyNoteBelowAmount(int amount) {
+    private static int getBiggestCurrencyNoteBelowAmount(int amount) {
         int maxNote = 0;
         for (int i = currencyNotes.length - 1; i >= 0; i--) {
             if (amount > currencyNotes[i]) {
@@ -98,7 +98,7 @@ public class CurrencyUtils {
 
     }
 
-    Denomination getCurrencyNoteForAmount(int amount) {
+    static Denomination getCurrencyNoteForAmount(int amount) {
         if (amount == 1) {
             return Denomination.ONES;
         } else if (amount == 5) {
@@ -115,7 +115,7 @@ public class CurrencyUtils {
         return null;
     }
 
-    int getCurrencyNoteValue(Denomination denomination) {
+    static int getCurrencyNoteValue(Denomination denomination) {
         if (denomination.equals(Denomination.ONES)) {
             return 1;
         } else if (denomination.equals(Denomination.FIVES)) {
@@ -132,7 +132,7 @@ public class CurrencyUtils {
         return 0;
     }
 
-    public  int getMoneyFromCurrency (Map<Denomination,Integer> currency) {
+    public static int getMoneyFromCurrency (Map<Denomination,Integer> currency) {
         int currentMoney = 0;
         for (Map.Entry<Denomination, Integer> entry : currency.entrySet()) {
             if (entry.getKey().equals(Denomination.ONES)) {
