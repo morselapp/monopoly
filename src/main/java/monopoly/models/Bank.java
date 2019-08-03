@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Bank {
+public class Bank extends TransactionEntity{
     private String icon;
     private int initialMoney;
     private Map<Denomination, Integer> currency;

@@ -3,6 +3,7 @@ package monopoly;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import monopoly.Utils.Utils;
 import monopoly.models.*;
 import monopoly.models.cell.*;
 

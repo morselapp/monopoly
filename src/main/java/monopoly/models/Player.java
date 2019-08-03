@@ -1,10 +1,10 @@
 package monopoly.models;
 
-import monopoly.Utils;
+import monopoly.Utils.Utils;
 
 import java.util.Map;
 
-public class Player {
+public class Player extends TransactionEntity {
     private int id;
     private String name;
     private String icon;
