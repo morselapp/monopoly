@@ -49,17 +49,17 @@
 
         <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
         <!-- for dependency injection. I am bored of manually injecting them -->
-        <dependency>
+<!--        <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
             <version>4.0</version>
-        </dependency>
+        </dependency>-->
 
         <!-- To mock objects in unit test cases -->
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.9.0</version>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.5</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.hamcrest</groupId>
@@ -70,6 +70,15 @@
 
 
     </dependencies>
+
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>mavenrepo</id>-->
+<!--            <name>maven repo</name>-->
+<!--            <url>https://mvnrepository.com/artifact/</url>-->
+<!--        </repository>-->
+
+<!--    </repositories>-->
 
 
 </project>
