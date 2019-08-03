@@ -1,10 +1,13 @@
 package monopoly.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import monopoly.models.cell.TransactionPojo;
 
 import java.util.Map;
+import java.util.Optional;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Bank extends TransactionEntity{
+public class Bank implements  TransactionEntity{
     private String icon;
     private int initialMoney;
     private Map<Denomination, Integer> currency;
@@ -53,5 +56,13 @@ public class Bank extends TransactionEntity{
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public Optional<TransactionPojo> addMoney(Map<Denomination,Integer> currency) {
+        return  Optional.of(new TransactionPojo());
+    }
+
+    public Optional<TransactionPojo> deductMoney(Map<Denomination,Integer> currency) {
+        return  Optional.of(new TransactionPojo());
     }
 }

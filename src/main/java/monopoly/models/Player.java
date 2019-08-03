@@ -2,10 +2,12 @@ package monopoly.models;
 
 import monopoly.Utils.CurrencyUtils;
 import monopoly.Utils.Utils;
+import monopoly.models.cell.TransactionPojo;
 
 import java.util.Map;
+import java.util.Optional;
 
-public class Player extends TransactionEntity {
+public class Player implements TransactionEntity {
     private int id;
     private String name;
     private String icon;
@@ -55,4 +57,13 @@ public class Player extends TransactionEntity {
     public int currentMoney() {
         return CurrencyUtils.getMoneyFromCurrency(this.currency);
     }
+
+    public Optional<TransactionPojo> addMoney(Map<Denomination,Integer> currency) {
+        return  Optional.of(new TransactionPojo());
+    }
+
+    public Optional<TransactionPojo> deductMoney(Map<Denomination,Integer> currency) {
+        return Optional.of(new TransactionPojo());
+    }
+
 }

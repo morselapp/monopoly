@@ -4,6 +4,6 @@ import monopoly.models.TransactionEntity;
 
 public interface ITransaction1 {
 
-    boolean transact(TransactionEntity buyer, TransactionEntity seller, Double transactionValue);
+    boolean transact(TransactionEntity sender, TransactionEntity receiver, Double transactionValue);
 
 }

@@ -3,6 +3,7 @@ package monopoly;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import monopoly.models.*;
 import monopoly.models.cell.*;
+
 import java.util.*;
 import java.util.logging.*;
 
@@ -14,14 +15,16 @@ public class GameService {
     private BidService bidService;
     private DiceService diceService;
     private BoardService boardService;
+    private TransactionService1 transactionService;
 
-    public GameService(ObjectMapper objectMapper, Logger log, Scanner scanner, UserInput userInput, Board board){
+    public GameService(ObjectMapper objectMapper, Logger log, Scanner scanner, UserInput userInput, Board board) {
         this.objectMapper = objectMapper;
         this.log = log;
         this.scanner = scanner;
         bidService = new BidService(log, userInput);
         diceService = new DiceService(new DiceSuit(new Dice(), new Dice()));
         boardService = new BoardService(board, log, objectMapper);
+        transactionService = new TransactionService1();
     }
 
     public void setPlayerPosition(List<Player> players, Board board) {
@@ -30,21 +33,20 @@ public class GameService {
         log.info("players placed on board");
     }
 
-    public void play(Player player, Board board, List<Player> players, Bank bank){
+    public void play(Player player, Board board, List<Player> players, Bank bank) {
         List<DiceTuple> diceTuples = diceService.roll();
 
         int suitOutcome = 0;
 
-        for (DiceTuple tuple: diceTuples) {
-            suitOutcome += tuple.getFaceY() +  tuple.getFaceY();
+        for (DiceTuple tuple : diceTuples) {
+            suitOutcome += tuple.getFaceY() + tuple.getFaceY();
         }
 
-        if(suitOutcome == -2){
+        if (suitOutcome == -2) {
 
-            log.info(player.getName() +" rolled doubles thrice with outcome "+ suitOutcome);
-            log.info( player.getName() +" sent to jail");
-        }
-        else {
+            log.info(player.getName() + " rolled doubles thrice with outcome " + suitOutcome);
+            log.info(player.getName() + " sent to jail");
+        } else {
             log.info(player.getName() + " rolled " + suitOutcome);
         }
         boardService.move(player, suitOutcome);
@@ -74,12 +76,13 @@ public class GameService {
 
             } else if (!checkBoughtState(player, newCell)) {
                 log.info(newCell.getName() + " is buyable");
-                System.out.println(player.getName() +", do you want to buy " + newCell.getName() + " worth " + ((BuyableCell) newCell).getPrice() + " ?: ");
+                System.out.println(player.getName() + ", do you want to buy " + newCell.getName() + " worth " + ((BuyableCell) newCell).getPrice() + " ?: ");
                 System.out.println("Enter y(YES) to buy or enter n(NO) to deny");
                 if (scanner.hasNext()) {
-                    if (scanner.next().toLowerCase().equals("y") && player.currentMoney() >= ((BuyableCell) newCell).getPrice()) {
+                    double cellPrice = ((BuyableCell) newCell).getPrice();
+                    if (scanner.next().toLowerCase().equals("y") && player.currentMoney() >= cellPrice) {
                         log.info(player.getName() + " decided to buy " + newCell.getName());
-                        ((BuyableCell) newCell).buy(bank, player, newCell);
+                        boolean transaction = transactionService.transact(player, bank, cellPrice);
 
 
                     } else {

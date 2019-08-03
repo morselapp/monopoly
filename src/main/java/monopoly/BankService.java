@@ -3,15 +3,18 @@ package monopoly;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import monopoly.models.Bank;
+import monopoly.models.Denomination;
 import monopoly.models.Player;
+import monopoly.models.cell.TransactionPojo;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class BankService {
 
-    private Player player;
+    private Bank bank;
     private Logger log;
     private ObjectMapper objectMapper;
 
@@ -30,4 +33,6 @@ public class BankService {
         }
         return null;
     }
+
+
 }
