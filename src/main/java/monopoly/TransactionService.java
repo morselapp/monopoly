@@ -15,7 +15,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.XMLFormatter;
 
-public class TransactionService implements ITransactionService {
+public class TransactionService implements ITransaction {
 
     private FileHandler fileHandler;
     private Logger log;

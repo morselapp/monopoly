@@ -1,7 +1,6 @@
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import monopoly.BoardService;
 import monopoly.GameService;
-import monopoly.UserInput;
 import monopoly.models.*;
 import monopoly.models.cell.*;
 import org.junit.Assert;
@@ -12,13 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.logging.FileHandler;
-import java.util.logging.Logger;
 import java.util.logging.XMLFormatter;
 import java.util.stream.Stream;
 
-public class BoardTest extends BaseTest{
+public class GameServiceTest extends BaseTest{
 
     private Board board;
     private FileHandler fileHandler;
@@ -68,7 +65,7 @@ public class BoardTest extends BaseTest{
     @Test
     public void boardInitializationTest() throws IOException{
         board = new Board();
-        board.setBoard(new GameService(objectMapper, log, scanner, userInput).initializeBoard());
+        board.setBoard(new BoardService(board, log, objectMapper).initializeBoard());
         Assert.assertEquals("Number of cells is not matching", board.getBoard().length, 40);
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[0].getName(), "Starting Cell");
         Assert.assertEquals("Number of cells is not matching", board.getBoard()[1].getName(), "Bangalore");

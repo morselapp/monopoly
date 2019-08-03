@@ -5,7 +5,7 @@ import monopoly.models.Board;
 import monopoly.models.Player;
 import monopoly.models.cell.Cell;
 
-public interface ITransactionService {
+public interface ITransaction {
 
     void buyCell (Bank bank, Player player, Cell cell);
 

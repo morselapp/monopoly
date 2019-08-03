@@ -13,9 +13,11 @@ import java.util.logging.XMLFormatter;
 public class Game {
 
     private GameService gameService;
-    private Board board;
-    private List<Player> players;
-    private Bank bank;
+    private static List<Player> players;
+    private static Bank bank;
+    private static Board board;
+
+    private static UserInput userInput;
     private static Logger log;
     private static Scanner scanner;
     private static FileHandler fileHandler;
@@ -28,15 +30,23 @@ public class Game {
 
     void startTheGame(){
         try {
-            board = new Board();
-            board.setBoard(gameService.initializeBoard());
-            board.getBoard();
-            players = gameService.initializePlayers();
-            bank = gameService.initializeBank();
-            gameService.setPlayerPosition(players, board);
-            gameService.play(players.get(0), board, players, bank);
 
-        }catch (IOException e){
+            int ROUNDS = 30;
+
+            gameService.setPlayerPosition(players, board);
+
+            int chance = 0;
+            int totalPlayers = players.size();
+
+            Player playerWithChance;
+
+            while (chance /3 < ROUNDS) {
+
+                playerWithChance = players.get(chance % totalPlayers);
+                gameService.play(playerWithChance, board, players, bank);
+                chance++;
+            }
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -51,7 +61,18 @@ public class Game {
         }
         log.addHandler(fileHandler);
         scanner = new Scanner(System.in);
-        UserInput userInput = new UserInput();
-        new Game(new GameService(new ObjectMapper(), log, scanner, userInput)).startTheGame();
+        userInput = new UserInput();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        board = new Board();
+        BoardService boardService = new BoardService(board, log, objectMapper);
+        board.setBoard(boardService.initializeBoard());
+
+        PlayerService playerService = new PlayerService(log, objectMapper);
+        players = playerService.initializePlayers();
+        BankService bankService = new BankService(log, objectMapper);
+        bank = bankService.initializeBank();
+        new Game(new GameService(objectMapper, log, scanner, userInput, board)).startTheGame();
     }
 }
