@@ -65,5 +65,4 @@ public class Player implements TransactionEntity {
     public Optional<TransactionPojo> deductMoney(Map<Denomination,Integer> currency) {
         return Optional.of(new TransactionPojo());
     }
-
 }

@@ -29,7 +29,7 @@ public class GameService {
 
     public void setPlayerPosition(List<Player> players, Board board) {
         board.setPlayerCellInfo(new HashMap<>());
-        players.forEach(player -> board.getPlayerCellInfo().put(player, board.getBoard()[0]));
+        players.forEach(player -> board.getPlayerCellInfo().put(player, board.getCells()[0]));
         log.info("players placed on board");
     }
 
@@ -39,7 +39,7 @@ public class GameService {
         int suitOutcome = 0;
 
         for (DiceTuple tuple : diceTuples) {
-            suitOutcome += tuple.getFaceY() + tuple.getFaceY();
+            suitOutcome += tuple.getFaceX() + tuple.getFaceY();
         }
 
         if (suitOutcome == -2) {
@@ -83,8 +83,6 @@ public class GameService {
                     if (scanner.next().toLowerCase().equals("y") && player.currentMoney() >= cellPrice) {
                         log.info(player.getName() + " decided to buy " + newCell.getName());
                         boolean transaction = transactionService.transact(player, bank, cellPrice);
-
-
                     } else {
                         log.info(newCell.getName() + " is available for bid");
                         Bid bid = bidService.performBid(newCell, player, players);

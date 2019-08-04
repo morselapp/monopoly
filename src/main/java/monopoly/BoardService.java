@@ -3,7 +3,6 @@ package monopoly;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import monopoly.Utils.Utils;
 import monopoly.models.*;
 import monopoly.models.cell.*;
 
@@ -20,13 +19,18 @@ public class BoardService {
     private Logger log;
     private ObjectMapper objectMapper;
 
-    public BoardService(Board board, Logger log, ObjectMapper objectMapper){
+    public BoardService(Board board, Logger log, ObjectMapper objectMapper) {
         this.board = board;
         this.log = log;
         this.objectMapper = objectMapper;
     }
 
-    public Cell[] initializeBoard() {
+    public void initializeBoard() {
+        this.board.setCells(this.createCells());
+    }
+
+    public Cell[] createCells() {
+        List<Cell> cells = new ArrayList<Cell>();
         try {
             List<City> cities = objectMapper.readValue(new File("src/main/configuration/city.json"), new TypeReference<ArrayList<City>>() {
             });
@@ -34,7 +38,7 @@ public class BoardService {
             });
             List<Industry> industries = objectMapper.readValue(new File("src/main/configuration/industry.json"), new TypeReference<ArrayList<Industry>>() {
             });
-            List<Jail> jail = objectMapper.readValue(new File("src/main/configuration/jail.json"), new TypeReference<ArrayList<Jail>>() {
+            List<Jail> jails = objectMapper.readValue(new File("src/main/configuration/jail.json"), new TypeReference<ArrayList<Jail>>() {
             });
             List<Free> parking = objectMapper.readValue(new File("src/main/configuration/parking.json"), new TypeReference<ArrayList<Free>>() {
             });
@@ -47,37 +51,32 @@ public class BoardService {
             List<Card> cards = objectMapper.readValue(new File("src/main/configuration/card.json"), new TypeReference<ArrayList<Card>>() {
             });
 
-
-            Cell[] board = new Cell[1];
-            List<Cell> cells = new ArrayList<>();
-            Utils.renderCells(board, cities, transports, industries, jail, parking, start, taxes, works, cards, cells);
-
+            cells.addAll(cities);
+            cells.addAll(transports);
+            cells.addAll(industries);
+            cells.addAll(jails);
+            cells.addAll(parking);
+            cells.addAll(start);
+            cells.addAll(taxes);
+            cells.addAll(works);
+            cells.addAll(cards);
         /*
             Sorting it here to make sure the cells are orders as per the ids.
          */
             Collections.sort(cells);
             log.info("board initialized");
-            return cells.toArray(new Cell[40]);
-        }
-        catch (IOException e){
-            log.severe("Unable to intitialize cells "+e);
+            return cells.toArray(new Cell[Board.CELL_COUNT]);
+        } catch (IOException e) {
+            log.severe("Unable to intitialize cells " + e);
         }
         return null;
     }
 
     public void move(Player player, int suitOutcome) {
         Cell playerCell = board.getPlayerCellInfo().get(player);
-
-        int position = 0;
-        for (Cell cell : board.getBoard()) {
-            if (cell.equals(playerCell)) {
-                log.info(player.getName() + " is at " + board.getBoard()[position].getName());
-                break;
-            }
-            position++;
-        }
-
-        board.getPlayerCellInfo().put(player, board.getBoard()[(position + suitOutcome) % 40]);
+        int newCellId = (playerCell.getId() + suitOutcome) % Board.CELL_COUNT;
+        Cell cell = board.getCells()[newCellId];
+        board.getPlayerCellInfo().put(player, cell);
         log.info(player.getName() + " reached " + board.getPlayerCellInfo().get(player).getName());
     }
 }

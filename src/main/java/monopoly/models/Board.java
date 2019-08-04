@@ -4,23 +4,24 @@ import monopoly.models.cell.*;
 import java.util.Map;
 
 public class Board {
-    private Cell[] board;
+    private Cell[] cells;
     private Map<Player, Cell> playerCellInfo;
+    public static final int CELL_COUNT = 40;
 
     public Board(){
 
     }
 
     public Board(Cell [] board){
-        this.board = board;
+        this.cells = board;
     }
 
-    public Cell[] getBoard() {
-        return board;
+    public Cell[] getCells() {
+        return cells;
     }
 
-    public void setBoard(Cell [] board){
-        this.board = board;
+    public void setCells(Cell [] cells){
+        this.cells = cells;
     }
 
     public Map<Player, Cell> getPlayerCellInfo() {

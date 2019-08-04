@@ -11,29 +11,29 @@ public class DiceService {
 
     private DiceSuit diceSuit;
 
-    public DiceService(DiceSuit diceSuit){
+    public DiceService(DiceSuit diceSuit) {
         this.diceSuit = diceSuit;
     }
 
-    public List<DiceTuple> roll(){
+    public List<DiceTuple> roll() {
         List<DiceTuple> rolls = new ArrayList<>();
         DiceTuple diceTuple = null;
         int rollFrequency = 0;
-        do{
+        do {
 
             diceTuple = diceSuit.roll();
             rollFrequency++;
 
-            if(rollFrequency == 3 && isDouble(diceTuple)){
-                return Collections.singletonList(new DiceTuple(-1,-1));
+            if (rollFrequency == 3 && isDouble(diceTuple)) {
+                return Collections.singletonList(new DiceTuple(-1, -1));
             }
             rolls.add(diceTuple);
 
-        }while (isDouble(diceTuple) && rollFrequency < 3);
+        } while (isDouble(diceTuple) && rollFrequency < 3);
         return rolls;
     }
 
-    private boolean isDouble(DiceTuple diceTuple){
+    private boolean isDouble(DiceTuple diceTuple) {
         return diceTuple.getFaceX() == diceTuple.getFaceY();
     }
 }
