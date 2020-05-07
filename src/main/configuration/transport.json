@@ -1,0 +1,46 @@
+[
+    {
+      "id": 5,
+      "name": "Railways",
+      "type": "TRANSPORT",
+      "icon": "abc.ico",
+      "color": "WHITE",
+      "description": "Railways is lifeline of India",
+      "price": 320,
+      "rent": 32,
+      "mortgage": 64
+    },
+    {
+      "id": 15,
+      "name": "Aerodrome",
+      "type": "TRANSPORT",
+      "icon": "abc.ico",
+      "color": "WHITE",
+      "description": "Fly to 100 other aerodrome in India",
+      "price": 400,
+      "rent": 40,
+      "mortgage": 80
+    },
+    {
+      "id": 25,
+      "name": "Roadways",
+      "type": "TRANSPORT",
+      "icon": "abc.ico",
+      "color": "WHITE",
+      "description": "Roadways provide access to the large chain og NH, SH of India",
+      "price": 200,
+      "rent": 20,
+      "mortgage": 40
+    },
+    {
+      "id": 35,
+      "name": "Waterways",
+      "type": "TRANSPORT",
+      "icon": "abc.ico",
+      "color": "WHITE",
+      "description": "Use sagermala which are water highways of India",
+      "price": 100,
+      "rent": 10,
+      "mortgage": 20
+    }
+]

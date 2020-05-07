@@ -1,0 +1,11 @@
+[
+    {
+      "id": 0,
+      "name": "Starting Cell",
+      "type": "BONUS",
+      "icon": "abc.ico",
+      "color": "PINK",
+      "description": "Start the game from here",
+      "bonus": "200"
+    }
+]

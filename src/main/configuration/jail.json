@@ -1,0 +1,11 @@
+[
+    {
+      "id": 10,
+      "name": "Jail",
+      "type": "JAIL",
+      "icon": "abc.ico",
+      "color": "RED",
+      "description": "Pay fine for your crime or stay here",
+      "charge":60
+    }
+]

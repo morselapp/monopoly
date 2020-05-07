@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Ajeet",
+    "icon": "abc.ico",
+    "initialMoney": 1500,
+    "currency": {
+      "ONES": 5,
+      "FIVES": 5,
+      "TWENTIES": 6,
+      "FIFTIES": 3,
+      "HUNDREDS": 2,
+      "FIVE_HUNDREDS": 2
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ashutosh",
+    "icon": "abc.ico",
+    "initialMoney": 1500,
+    "currency": {
+      "ONES": 5,
+      "FIVES": 5,
+      "TWENTIES": 6,
+      "FIFTIES": 3,
+      "HUNDREDS": 2,
+      "FIVE_HUNDREDS": 2
+    }
+  },
+  {
+    "id": 3,
+    "name": "Kunal",
+    "icon": "abc.ico",
+    "initialMoney": 1500,
+    "currency": {
+      "ONES": 5,
+      "FIVES": 5,
+      "TWENTIES": 6,
+      "FIFTIES": 3,
+      "HUNDREDS": 2,
+      "FIVE_HUNDREDS": 2
+    }
+  }
+]

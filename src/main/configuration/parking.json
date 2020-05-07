@@ -1,0 +1,18 @@
+[
+    {
+      "id": 20,
+      "name": "Parking",
+      "type": "FREE",
+      "icon": "abc.ico",
+      "color": "PINK",
+      "description": "Enjoy free stay"
+    },
+    {
+      "id": 30,
+      "name": "Go to Jail",
+      "type": "FREE",
+      "icon": "abc.ico",
+      "color": "RED",
+      "description": "Go to Jail"
+    }
+  ]

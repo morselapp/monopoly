@@ -1,0 +1,23 @@
+{
+  "game":[
+    {
+      "id": 1,
+      "name": "Monopoly",
+      "icon": "abc.ico",
+      "description": "play the game of monopoly",
+      "totalMoney": 15000
+    }
+  ],
+  "bank":{
+    "icon": "abc.ico",
+    "initialMoney": 13500,
+    "currency":{
+      "ones": 45,
+      "fives": 45,
+      "twenties": 54,
+      "fifties": 27,
+      "hundreds": 18,
+      "five-hundreds":18
+    }
+  }
+}
